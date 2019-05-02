@@ -5,6 +5,14 @@ const PurgecssPlugin = require('purgecss-webpack-plugin')
 const glob = require('glob-all')
 const path = require('path')
 import axios from 'axios'
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: '/julios54/'
+        }
+      }
+    : {}
 
 class TailwindExtractor {
   static extract(content) {
@@ -14,6 +22,8 @@ class TailwindExtractor {
 
 export default {
   mode: 'universal',
+
+  ...routerBase,
 
   /*
    ** Headers of the page
