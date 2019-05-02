@@ -9,7 +9,7 @@ const routerBase =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
         router: {
-          base: '/julios54/'
+          base: '/nuxt-cockpit-portfolio/'
         }
       }
     : {}
