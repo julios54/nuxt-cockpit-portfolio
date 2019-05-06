@@ -7,6 +7,11 @@
         </figure>
         <h1 class="home-banner-title">{{ title }}</h1>
         <p class="home-banner-content">{{ content }}</p>
+        <div class="home-banner-logos">
+          <a v-for="(stackItem,key) in stack" :key="key" class="home-banner-logo" :href="stackItem.link" :title="stackItem.title" target="_blank">
+            <img :src="stackItem.logo" />
+          </a>
+        </div>
       </div>
     </section>
 
@@ -65,11 +70,17 @@
             <div class="home-resume-items">
               <div class="home-resume-item" v-for="(experience,experienceKey) in experiences" :key="experienceKey">
                 <div class="home-resume-item-left">
-                  <img class="home-resume-item-company-logo" :src="companyLogoPath(experience)" />
-                  <h2 class="home-resume-item-company-name">{{ experience.companyName }}</h2>
+                  <a :href="experience.companyLink" :title="experience.companyTitle" target="_blank">
+                    <img class="home-resume-item-company-logo" :src="companyLogoPath(experience)" />
+                  </a>
                 </div>
                 <div class="home-resume-item-right">
+                  <div class="home-resume-item-title">{{ experience.title }}</div>
+                  <div class="home-resume-item-date">{{ experience.from }}<span v-if="experience.to"> to {{ experience.to }}</span></div>
                   <div class="home-resume-item-description content" v-html="experience.description"></div>
+                  <div class="home-resume-item-stack-items">
+                    <div v-for="(stackItem,key) in experience.stack" :key="key" class="home-resume-item-stack-item">{{ stackItem.value }}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -79,12 +90,47 @@
     </section>
   </div>
 </template>
-
 <script>
 export default {
   head: {
     bodyAttrs: {
       class: 'home'
+    }
+  },
+  data() {
+    return {
+      stack: [
+        {
+          title: 'PHP',
+          link: 'https://www.php.net/',
+          logo: require('@/assets/img/logo-php.png')
+        },
+        {
+          title: 'Nuxt.js',
+          link: 'https://fr.nuxtjs.org/',
+          logo: require('@/assets/img/logo-nuxt.png')
+        },
+        {
+          title: 'Symfony',
+          link: 'https://symfony.com/',
+          logo: require('@/assets/img/logo-symfony.png')
+        },
+        {
+          title: 'Laravel',
+          link: 'https://laravel.com/',
+          logo: require('@/assets/img/logo-laravel.png')
+        },
+        {
+          title: 'Cockpit',
+          link: 'https://getcockpit.com/',
+          logo: require('@/assets/img/logo-cockpit.png')
+        },
+        {
+          title: 'Elasticsearch',
+          link: 'https://www.elastic.co/',
+          logo: require('@/assets/img/logo-elasticsearch.png')
+        }
+      ]
     }
   },
   async asyncData ({ app, store }) {
