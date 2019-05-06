@@ -3,7 +3,7 @@
     <section class="work-item-banner-container">
       <div class="container">
         <div class="work-item-banner">
-          <h1 class="work-item-banner-title">{{ work.title }}</h1>
+          <h1 class="work-item-banner-title animated bounceIn faster">{{ work.title }}</h1>
           <p class="work-item-banner-content">{{ work.description }}</p>
           <div class="work-item-banner-stack-items">
             <div v-for="(stackItem,key) in work.stack" :key="key" class="work-item-banner-stack-item">
@@ -16,7 +16,7 @@
 
     <section class="work-item-content-container">
       <div class="container">
-        <figure class="work-item-banner-thumbnail-container">
+        <figure class="work-item-banner-thumbnail-container animated slideInUp faster">
           <img class="work-item-banner-thumbnail" :src="thumbnail">
         </figure>
       </div>

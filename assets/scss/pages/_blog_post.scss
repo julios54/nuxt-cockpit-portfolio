@@ -63,6 +63,14 @@
       padding: 40px;
       margin: 0 auto;
       width: 100%;
+      .content {
+        pre {
+          padding: 0;
+          .hljs {
+            padding: 20px;
+          }
+        }
+      }
     }
   }
 }

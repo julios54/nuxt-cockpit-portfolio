@@ -58,7 +58,10 @@ export default {
   /*
    ** Global CSS
    */
-  css: [{ src: '~assets/scss/app.scss', lang: 'sass' }],
+  css: [
+    { src: '~/node_modules/highlight.js/styles/darcula.css', lang: 'css' },
+    { src: '~assets/scss/app.scss', lang: 'sass' }
+  ],
 
   /*
    ** Plugins to load before mounting the App
@@ -103,7 +106,8 @@ export default {
           cookieKey: 'i18n_redirected'
         }
       }
-    ]
+    ],
+    '@nuxtjs/moment'
   ],
 
   /*
@@ -116,6 +120,10 @@ export default {
   markdownit: {
     injected: true,
     use: ['markdown-it-highlightjs']
+  },
+
+  moment: {
+    locales: ['fr']
   },
 
   /*

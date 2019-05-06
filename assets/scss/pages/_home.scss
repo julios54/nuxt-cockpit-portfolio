@@ -1,17 +1,8 @@
 body {
   .home {
     .nav-container {
-      background: transparent;
-      position: absolute;
-      width: 100%;
-
       .logo {
         display: none;
-      }
-      .menu {
-        > a {
-          color: white;
-        }
       }
     }
 
@@ -107,7 +98,6 @@ body {
           align-items: center;
           justify-content: space-between;
           flex-wrap: wrap;
-          margin-top: 20px;
           .home-portfolio-item {
             height: 350px;
             flex-basis: 48%;
@@ -180,7 +170,7 @@ body {
             }
 
             &:hover {
-              border-width: 10px;
+              //border-width: 10px;
               &:before {
                 opacity: 1;
               }
@@ -194,7 +184,7 @@ body {
     }
 
     .home-about-me-container {
-      margin-top: 30px;
+      margin-top: 60px;
       .home-about-me {
         .home-about-me-title {
           font-family: 'Inconsolata';
@@ -204,7 +194,7 @@ body {
     }
 
     .home-blog-container {
-      margin-top: 30px;
+      margin-top: 60px;
       .home-blog {
         .home-blog-title {
           font-family: 'Inconsolata';
@@ -216,7 +206,6 @@ body {
           align-items: center;
           justify-content: space-between;
           flex-wrap: wrap;
-          margin-top: 20px;
           .home-blog-item {
             flex-basis: 48%;
             margin-top: 40px;
@@ -224,8 +213,18 @@ body {
             .home-blog-item-thumbnail-container {
               padding-bottom: 56.25%;
               height: 0;
-              background-size: cover;
-              background-position: center;
+              position: relative;
+              overflow: hidden;
+              .home-blog-item-thumbnail {
+                transition: 0.5s ease all;
+                background-size: cover;
+                background-position: center;
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+              }
             }
             .home-blog-item-title {
               font-weight: bold;
@@ -238,13 +237,22 @@ body {
                 color: black;
               }
             }
+
+            &:hover {
+              .home-blog-item-thumbnail-container {
+                .home-blog-item-thumbnail {
+                  opacity: 0.8;
+                  transform: scale(1.1)
+                }
+              }
+            }
           }
         }
       }
     }
 
     .home-resume-container {
-      margin-top: 30px;
+      margin-top: 60px;
       .home-resume {
         .home-resume-title {
           font-family: 'Inconsolata';
@@ -320,6 +328,30 @@ body {
                 }
               }
             }
+          }
+        }
+      }
+    }
+
+    .home-contact-container {
+      margin-top: 60px;
+      .home-contact {
+        .home-contact-title {
+          font-family: 'Inconsolata';
+          font-size: 32px;
+        }
+
+        .home-contact-links {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 30px;
+          .home-contact-link {
+            img {
+              height: 50px;
+            }
+            margin-left: 10px;
+            margin-right: 10px;
           }
         }
       }

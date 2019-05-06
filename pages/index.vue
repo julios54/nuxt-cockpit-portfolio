@@ -3,12 +3,12 @@
     <section class="home-banner-container">
       <div class="home-banner">
         <figure class="home-banner-image-profile-container image is-128x128">
-          <img class="home-banner-image-profile is-rounded" :src="imageProfile" />
+          <img class="home-banner-image-profile is-rounded animated fadeIn" :src="imageProfile" />
         </figure>
-        <h1 class="home-banner-title">{{ title }}</h1>
+        <h1 class="home-banner-title animated bounceIn fast">{{ title }}</h1>
         <p class="home-banner-content">{{ content }}</p>
         <div class="home-banner-logos">
-          <a v-for="(stackItem,key) in stack" :key="key" class="home-banner-logo" :href="stackItem.link" :title="stackItem.title" target="_blank">
+          <a v-for="(stackItem,key) in stack" :key="key" class="home-banner-logo animated slideInLeft faster" :href="stackItem.link" :title="stackItem.title" target="_blank">
             <img :src="stackItem.logo" />
           </a>
         </div>
@@ -20,9 +20,9 @@
         <div class="home-portfolio-container">
           <div class="home-portfolio">
             <h1 class="home-portfolio-title">{{ $t('home.portfolio_title')}}</h1>
-            <p class="home-portfolio-subtitle">Découvrez quelques uns de mes travaux réalisés en tant que freelance</p>
+            <p class="home-portfolio-subtitle">{{ $t('home.portfolio_description')}}</p>
             <div class="home-portfolio-items">
-              <div class="home-portfolio-item" v-for="(work,workKey) in works" :key="workKey" :style="`background-image: url('${workImagePath(work)}')`" @click="navigateToWork(work)">
+              <div class="home-portfolio-item animated slideInUp faster" v-for="(work,workKey) in works" :key="workKey" :style="`background-image: url('${workImagePath(work)}')`" @click="navigateToWork(work)">
                 <div class="home-portfolio-item-information">
                   <h2 class="home-portfolio-item-information-title">
                     <nuxt-link :to="localePath({ name: 'work-slug', params: { slug: work.slug } })" class="home-portfolio-item-information-link">
@@ -51,13 +51,12 @@
             <h1 class="home-blog-title">{{ $t('home.blog_title')}}</h1>
             <div class="home-blog-items">
               <div class="home-blog-item" v-for="(post,postKey) in posts" :key="postKey" @click="navigateToBlogPost(post)">
-                  <div class="home-blog-item-thumbnail-container"  :style="`background-image: url('${blogPostImagePath(post)}')`">
-                  
+                  <div class="home-blog-item-thumbnail-container">
+                    <div class="home-blog-item-thumbnail" :style="`background-image: url('${blogPostImagePath(post)}')`"></div>
                   </div>
                   <h2 class="home-blog-item-title">
                     <nuxt-link :to="localePath({ name: 'blog-slug', params: { slug: post.slug } })" class="home-blog-item-link">{{ post.title }}</nuxt-link>
                   </h2>
-                  
               </div>
             </div>
           </div>
@@ -70,19 +69,38 @@
             <div class="home-resume-items">
               <div class="home-resume-item" v-for="(experience,experienceKey) in experiences" :key="experienceKey">
                 <div class="home-resume-item-left">
-                  <a :href="experience.companyLink" :title="experience.companyTitle" target="_blank">
+                  <a :href="experience.companyLink" :title="experience.companyName" target="_blank">
                     <img class="home-resume-item-company-logo" :src="companyLogoPath(experience)" />
                   </a>
                 </div>
                 <div class="home-resume-item-right">
                   <div class="home-resume-item-title">{{ experience.title }}</div>
-                  <div class="home-resume-item-date">{{ experience.from }}<span v-if="experience.to"> to {{ experience.to }}</span></div>
+                  <div class="home-resume-item-date">
+                    <span v-if="experience.to">
+                      {{ $t('home.resume_date_from_to', {'from': experienceDate(experience.from), 'to': experienceDate(experience.to)}) }}
+                    </span>
+                    <span v-else>
+                      {{ $t('home.resume_date_from', {'from': experienceDate(experience.from)}) }}
+                    </span>
+                  </div>
                   <div class="home-resume-item-description content" v-html="experience.description"></div>
                   <div class="home-resume-item-stack-items">
                     <div v-for="(stackItem,key) in experience.stack" :key="key" class="home-resume-item-stack-item">{{ stackItem.value }}</div>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-contact-container">
+          <div class="home-contact">
+            <h1 class="home-contact-title">{{ $t('home.contact_title')}}</h1>
+            <p>{{ $t('home.contact_content') }}</p>
+            <div class="home-contact-links">
+              <a v-for="(contactLink,key) in contactLinks" :key="key" :href="contactLink.link" class="home-contact-link" target="_blank" :title="contactLink.title">
+                <img :src="contactLink.icon" :alt="contactLink.title" />
+              </a>
             </div>
           </div>
         </div>
@@ -130,6 +148,23 @@ export default {
           link: 'https://www.elastic.co/',
           logo: require('@/assets/img/logo-elasticsearch.png')
         }
+      ],
+      contactLinks: [
+        {
+          title: 'Malt',
+          link: 'https://www.malt.fr/profile/julienhumbert',
+          icon: require('@/assets/img/icon-malt.png')
+        },
+        {
+          title: 'Linkedin',
+          link: 'https://www.linkedin.com/in/jh-web/',
+          icon: require('@/assets/img/icon-linkedin.png')
+        },
+        {
+          title: 'GitHub',
+          link: 'https://github.com/julios54',
+          icon: require('@/assets/img/icon-github.png')
+        },
       ]
     }
   },
@@ -209,7 +244,10 @@ export default {
     },
     navigateToBlogPost(post) {
       this.$router.push(this.localePath({ name: 'blog-slug', params: { slug: post.slug } }))
-    }
+    },
+    experienceDate(date) {
+      return this.$moment(date).locale(this.$store.state.i18n.locale).format('MMMM YYYY')
+    },
   },
   computed: {
     imageProfile() {

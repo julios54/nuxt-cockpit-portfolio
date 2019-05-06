@@ -61,7 +61,7 @@
         width: 100%;
         .work-item-banner-stack-item {
           text-align: center;
-          padding: 5px;
+          padding: 5px 10px;
           margin-left: 10px;
           margin-right: 10px;
           margin-top: 20px;
@@ -81,7 +81,6 @@
     z-index: 2;
 
     .work-item-banner-thumbnail-container {
-      border: 15px solid #131317;
       margin-top: 30px;
     }
   }

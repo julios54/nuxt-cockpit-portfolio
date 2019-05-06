@@ -3,10 +3,10 @@
     <section class="blog-post-banner-container">
       <div class="container">
         <div class="blog-post-banner">
-          <figure class="blog-post-banner-thumbnail-container">
+          <figure class="blog-post-banner-thumbnail-container animated fadeIn">
             <img class="blog-post-banner-thumbnail" :src="thumbnail">
           </figure>
-          <h1 class="blog-post-banner-title">{{ post.title }}</h1>
+          <h1 class="blog-post-banner-title animated bounceIn faster">{{ post.title }}</h1>
           <p class="blog-post-banner-content">{{ post.chapo }}</p>
         </div>
       </div>

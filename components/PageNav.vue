@@ -8,7 +8,7 @@
             @click.native="clickMenu({routeName: 'home'})"
             class="logo"
           >
-            <img src="~assets/img/logo.png" width="40px">
+            {{ $t('back_to_home') }}
           </nuxt-link>
         </div>
         <div class="menu" v-bind:class="{'menu-mobile--hidden':menuHidden}">

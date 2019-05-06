@@ -1,7 +1,7 @@
 <template>
-  <footer>
+  <footer class="footer">
     <div>
-      JH-WEB
+      {{ $t('footer_content') }}
     </div>
   </footer>
 </template>
