@@ -25,6 +25,9 @@ export default {
     )
 
     return { contact: data }
+  },
+  mounted() {
+    this.$store.commit('setLayoutClass', 'contact')
   }
 }
 </script>

@@ -1,10 +1,14 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="(experience, key) in experiences" :key="key">
-        {{ experience.companyName }}
-      </li>
-    </ul>
+  <div class="experiences">
+    <div class="experience" v-bind:class="animatedClasses(key)" v-for="(experience, key) in experiences" :key="key">
+      <div class="experience-left">
+        <img :src="companyLogoPath(experience)" />
+        <h2>{{ experience.companyName }}</h2>
+      </div>
+      <div class="experience-right">
+        <p v-html="experience.description"></p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -13,6 +17,26 @@ export default {
   head: {
     bodyAttrs: {
       class: 'experiences'
+    }
+  },
+  methods: {
+    companyLogoPath(experience) {
+      return `${process.env.COCKPIT_ASSETS_BASE_URL}/${experience.companyLogo.path}`
+    },
+    animatedClasses(key) {
+      let classes = {
+        'animated': true
+      }
+      if (key % 2 == 0) {
+        Object.assign(classes, {
+          'fadeInLeft fast': true
+        })
+      } else {
+        Object.assign(classes, {
+          'fadeInRight fast': true
+        })
+      }
+      return classes
     }
   },
   async asyncData({ app, store }) {
@@ -29,6 +53,9 @@ export default {
     )
 
     return { experiences: data.entries }
+  },
+  mounted() {
+    this.$store.commit('setLayoutClass', 'experiences')
   }
 }
 </script>

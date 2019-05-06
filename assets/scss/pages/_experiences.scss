@@ -1,0 +1,30 @@
+body {
+  .experiences {
+    .experience {
+      padding: 10px;
+      border: 1px solid black;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+
+      .experience-left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+        flex-basis: 25%;
+        flex-shrink: 0;
+      }
+
+      .experience-right {
+        margin-left: 20px;
+        flex-grow: 1;
+      }
+    }
+  }
+}

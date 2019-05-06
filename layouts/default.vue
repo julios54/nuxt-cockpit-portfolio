@@ -1,21 +1,29 @@
 <template>
-  <div class="flex flex-row justify-center">
-    <div class="overflow-hidden content flex flex-col p-4 md:p-8">
-      <page-nav/>
+  <div v-bind:class="classObject">
+    <page-nav/>
+    <div>
       <nuxt/>
-      <page-footer/>
     </div>
+    <page-footer/>
   </div>
 </template>
 
 <script>
 import PageNav from '~/components/PageNav.vue'
 import PageFooter from '~/components/PageFooter.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     PageNav,
     PageFooter
+  },
+  computed: {
+    classObject() {
+      let classObject = {};
+      classObject[this.$store.state.layoutClass] = true;
+      return classObject;
+    }
   }
 }
 </script>

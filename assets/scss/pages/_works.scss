@@ -1,0 +1,34 @@
+body {
+  .works {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .work {
+      padding: 10px;
+      border: 1px solid black;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      &:not(:first-child) {
+        margin-top: 30px;
+      }
+
+      &:first-child {
+        flex-basis: 100%;
+      }
+
+      flex-basis: 48%;
+
+      .work-left {
+        flex-basis: 60%;
+        flex-shrink: 0;
+      }
+
+      .work-right {
+        flex-grow: 1;
+        margin-left: 20px;
+      }
+    }
+  }
+}
