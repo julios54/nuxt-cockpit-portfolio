@@ -124,10 +124,10 @@ export default {
     routes: async () => {
       const routes = []
       const locales = [
-        {
+        /*{
           code: 'en',
           prefix: 'en/'
-        },
+        },*/
         {
           code: 'fr',
           prefix: ''
