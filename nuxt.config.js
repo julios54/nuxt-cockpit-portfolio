@@ -11,7 +11,7 @@ const routerBase =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
         router: {
-          base: '/nuxt-cockpit-portfolio/'
+          base: '/'
         }
       }
     : {}
