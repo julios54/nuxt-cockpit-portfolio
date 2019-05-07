@@ -7,19 +7,8 @@ import pkg from './package'
 
 require('dotenv').config()
 
-const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-        router: {
-          base: '/nuxt-cockpit-portfolio/'
-        }
-      }
-    : {}
-
 export default {
   mode: 'universal',
-
-  ...routerBase,
 
   /*
    ** Headers of the page
