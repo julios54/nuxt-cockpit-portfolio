@@ -1,4 +1,5 @@
 export default {
+  seo_title: 'JH-WEB | Passionate Fullstack WEB Developer | Lyon',
   back_to_home: 'Back',
   'nav.experiences': 'Resume',
   'nav.portfolio': 'Portfolio',
@@ -14,7 +15,7 @@ export default {
   'home.portfolio_description':
     'Please have a look on my last projects as a freelance',
   'home.contact_title': 'Contact',
-  'home.contact_content': 'You can join me by clicking on links below :',
+  'home.contact_content': 'You can join me by clicking on links below',
   footer_content: '© 2017 — Webiste build with Nuxt.js and Cockpit.',
   'work.view_project': 'Visit website'
 }

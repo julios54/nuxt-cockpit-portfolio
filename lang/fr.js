@@ -1,4 +1,5 @@
 export default {
+  seo_title: 'JH-WEB | Développeur web passionné | Lyon',
   back_to_home: 'Retour',
   'nav.experiences': 'Expériences',
   'nav.portfolio': 'Portfolio',
@@ -12,10 +13,10 @@ export default {
   'home.resume_date_from': 'De {from}',
   'home.resume_date_from_to': 'De {from} à {to}',
   'home.portfolio_description':
-    "Jetez un oeil aux derniers projets que j'ai réalisé en tant que freelance",
+    "Vous pouvez voir quelques uns des projets que j'ai réalisé en tant que freelance",
   'home.contact_title': 'Contact',
   'home.contact_content':
-    "Vous pouvez me contacter pour réaliser votre projet à partir d'un des liens ci-dessous :",
+    "Vous pouvez me contacter pour réaliser votre projet à partir d'un des liens ci-dessous",
   footer_content: '© 2017 — Site web développé grâce à Nuxt.js et Cockpit.',
   'work.view_project': 'Visiter le site'
 }

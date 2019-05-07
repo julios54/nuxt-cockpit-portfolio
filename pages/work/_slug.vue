@@ -28,6 +28,14 @@
 <script>
 import nl2br from 'nl2br'
 export default {
+  head () {
+    return {
+      title: `JH-WEB | ${this.work.title} | ${this.work.stack.map((stackItem) => stackItem.value).join(' ')}`,
+      meta: [
+        { hid: 'description', name: 'description', content: this.work.description }
+      ]
+    }
+  },
   computed: {
     thumbnail() {
       return `${process.env.COCKPIT_ASSETS_BASE_URL}/${this.work.image.path}`

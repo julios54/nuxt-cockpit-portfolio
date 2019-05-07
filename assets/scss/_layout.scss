@@ -12,6 +12,15 @@ html {
   }
 }
 
+a {
+  color: #0d403f;
+  text-decoration: none;
+  font-weight: bold;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .page-enter-active, .page-leave-active {
   transition: opacity .5s
 }

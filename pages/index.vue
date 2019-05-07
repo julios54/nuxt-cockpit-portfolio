@@ -4,10 +4,11 @@
       <div class="container">
         <div class="home-banner">
           <figure class="home-banner-image-profile-container image">
-            <img class="home-banner-image-profile is-rounded animated fadeIn" :src="imageProfile">
+            <img class="home-banner-image-profile is-rounded animated fadeIn" :src="imageProfile" :title="`Julien HUMBERT - ${homepage.title}`">
           </figure>
-          <h1 class="home-banner-title animated bounceIn fast">{{ title }}</h1>
-          <p class="home-banner-content">{{ content }}</p>
+          <h1 class="home-banner-title animated bounceIn fast">Julien HUMBERT</h1>
+          <h2 class="home-banner-subtitle animated bounceIn fast">{{ homepageTitle }}</h2>
+          <p class="home-banner-content" v-html="homepageContent"></p>
           <div class="home-banner-logos">
             <a
               v-for="(stackItem,key) in stack"
@@ -69,33 +70,6 @@
           </div>
         </div>
 
-        <div class="home-blog-container">
-          <div class="home-blog">
-            <h1 class="home-blog-title">{{ $t('home.blog_title')}}</h1>
-            <div class="home-blog-items">
-              <div
-                class="home-blog-item"
-                v-for="(post,postKey) in posts"
-                :key="postKey"
-                @click="navigateToBlogPost(post)"
-              >
-                <div class="home-blog-item-thumbnail-container">
-                  <div
-                    class="home-blog-item-thumbnail"
-                    :style="`background-image: url('${blogPostImagePath(post)}')`"
-                  ></div>
-                </div>
-                <h2 class="home-blog-item-title">
-                  <nuxt-link
-                    :to="localePath({ name: 'blog-slug', params: { slug: post.slug } })"
-                    class="home-blog-item-link"
-                  >{{ post.title }}</nuxt-link>
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="home-resume-container">
           <div class="home-resume">
             <h1 class="home-resume-title">{{ $t('home.resume_title')}}</h1>
@@ -138,10 +112,37 @@
           </div>
         </div>
 
+        <div class="home-blog-container">
+          <div class="home-blog">
+            <h1 class="home-blog-title">{{ $t('home.blog_title')}}</h1>
+            <div class="home-blog-items">
+              <div
+                class="home-blog-item"
+                v-for="(post,postKey) in posts"
+                :key="postKey"
+                @click="navigateToBlogPost(post)"
+              >
+                <div class="home-blog-item-thumbnail-container">
+                  <div
+                    class="home-blog-item-thumbnail"
+                    :style="`background-image: url('${blogPostImagePath(post)}')`"
+                  ></div>
+                </div>
+                <h2 class="home-blog-item-title">
+                  <nuxt-link
+                    :to="localePath({ name: 'blog-slug', params: { slug: post.slug } })"
+                    class="home-blog-item-link"
+                  >{{ post.title }}</nuxt-link>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="home-contact-container">
           <div class="home-contact">
             <h1 class="home-contact-title">{{ $t('home.contact_title')}}</h1>
-            <p>{{ $t('home.contact_content') }}</p>
+            <p class="home-contact-description">{{ $t('home.contact_content') }}</p>
             <div class="home-contact-links">
               <a
                 v-for="(contactLink,key) in contactLinks"
@@ -164,9 +165,12 @@
 import nl2br from 'nl2br'
 import trunc from 'trunc-html'
 export default {
-  head: {
-    bodyAttrs: {
-      class: 'home'
+  head () {
+    return {
+      title: this.$t('seo_title'),
+      meta: [
+        { hid: 'description', name: 'description', content: this.homepageContent }
+      ]
     }
   },
   data() {
@@ -337,11 +341,11 @@ export default {
     imageProfile() {
       return process.env.COCKPIT_ASSETS_BASE_URL + this.homepage.image.path
     },
-    title() {
+    homepageTitle() {
       return this.homepage.title
     },
-    content() {
-      return this.homepage.content.replace('__years__', 10)
+    homepageContent() {
+      return nl2br(this.homepage.content.replace('__years__', 10))
     },
     aboutContent() {
       return this.$md.render(this.about.content)

@@ -22,6 +22,14 @@
 
 <script>
 export default {
+    head () {
+    return {
+      title: `JH-WEB | ${this.post.title}`,
+      meta: [
+        { hid: 'description', name: 'description', content: this.post.chapo }
+      ]
+    }
+  },
   async asyncData({ app, params, error, payload, store }) {
     const locale = store.state.i18n.locale
     if (payload) {

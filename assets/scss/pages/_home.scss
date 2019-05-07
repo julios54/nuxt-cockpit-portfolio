@@ -38,19 +38,27 @@ body {
 
         .home-banner-image-profile-container {
           overflow: hidden;
-          opacity: 0.9;
           width: 200px;
           height: 200px;
+          border: 6px solid #50635d87;
+          border-radius: 200px;
         }
 
         .home-banner-title {
           font-size: 48px;
-          margin: 10px 0 5px;
+          margin: 20px 0 20px;
+          text-align: center;
+        }
+
+        .home-banner-subtitle {
+          font-size: 28px;
+          margin: 10px 0 20px;
+          font-weight: bold;
           text-align: center;
         }
 
         .home-banner-content {
-          font-size: 24px;
+          font-size: 18px;
           text-align: center;
         }
 
@@ -94,6 +102,7 @@ body {
         .home-portfolio-title {
           font-family: 'Inconsolata';
           font-size: 32px;
+          font-weight: bold;
         }
         .home-portfolio-items {
           display: flex;
@@ -105,7 +114,7 @@ body {
             height: 350px;
             flex-basis: 49%;
             margin-bottom: 30px;
-            border: 10px solid #151518;
+            border: 5px solid #f7f7f7;
             background-position: center;
             background-size: cover;
             display: flex;
@@ -192,6 +201,7 @@ body {
           font-family: 'Inconsolata';
           font-size: 32px;
           margin-bottom: 10px;
+          font-weight: bold;
         }
       }
     }
@@ -202,6 +212,7 @@ body {
         .home-blog-title {
           font-family: 'Inconsolata';
           font-size: 32px;
+          font-weight: bold;
         }
 
         .home-blog-items {
@@ -231,8 +242,6 @@ body {
               }
             }
             .home-blog-item-title {
-              font-weight: bold;
-              font-family: 'Inconsolata';
               margin-top: 10px;
               font-size: 24px;
               text-decoration: none;
@@ -261,6 +270,7 @@ body {
         .home-resume-title {
           font-family: 'Inconsolata';
           font-size: 32px;
+          font-weight: bold;
         }
 
         .home-resume-items {
@@ -273,6 +283,11 @@ body {
             flex-basis: 100%;
             &:not(:first-child) {
               margin-top: 30px;
+            }
+
+            &:not(:last-child) {
+              border-bottom: 1px solid #1414181f;
+              padding-bottom: 30px;
             }
             background-position: center;
             background-size: cover;
@@ -343,6 +358,13 @@ body {
         .home-contact-title {
           font-family: 'Inconsolata';
           font-size: 32px;
+          font-weight: bold;
+          text-align: center;
+        }
+
+        .home-contact-description {
+          font-size: 20px;
+          text-align: center;
         }
 
         .home-contact-links {

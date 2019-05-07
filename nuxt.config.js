@@ -23,8 +23,8 @@ export default {
     link: [
       {
         rel: 'icon',
-        type: 'image/x-icon',
-        href: './assets/img/favicon.png'
+        type: 'image/png',
+        href: '/favicon.png'
       },
       {
         rel: 'stylesheet',
