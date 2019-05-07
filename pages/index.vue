@@ -8,7 +8,7 @@
           </figure>
           <h1 class="home-banner-title animated bounceIn fast">Julien HUMBERT</h1>
           <h2 class="home-banner-subtitle animated bounceIn fast">{{ homepageTitle }}</h2>
-          <p class="home-banner-content" v-html="homepageContent"></p>
+          <div class="home-banner-content" v-html="homepageContent"></div>
           <div class="home-banner-logos">
             <a
               v-for="(stackItem,key) in stack"
@@ -18,7 +18,7 @@
               :title="stackItem.title"
               target="_blank"
             >
-              <img :src="stackItem.logo">
+              <img :src="stackItem.logo" />
             </a>
           </div>
         </div>
@@ -66,7 +66,7 @@
         <div class="home-about-me-container">
           <div class="home-about-me">
             <h1 class="home-about-me-title">{{ $t('home.about_me_title')}}</h1>
-            <p class="home-about-me-content content" v-html="aboutContent"></p>
+            <div class="home-about-me-content content" v-html="aboutContent"></div>
           </div>
         </div>
 
@@ -82,7 +82,7 @@
               >
                 <div class="home-resume-item-left">
                   <a :href="experience.companyLink" :title="experience.companyName" target="_blank">
-                    <img class="home-resume-item-company-logo" :src="companyLogoPath(experience)">
+                    <img class="home-resume-item-company-logo" :src="companyLogoPath(experience)" />
                   </a>
                 </div>
                 <div class="home-resume-item-right">
@@ -152,7 +152,7 @@
                 target="_blank"
                 :title="contactLink.title"
               >
-                <img :src="contactLink.icon" :alt="contactLink.title">
+                <img :src="contactLink.icon" :alt="contactLink.title" />
               </a>
             </div>
           </div>

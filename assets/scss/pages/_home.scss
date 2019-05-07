@@ -40,7 +40,7 @@ body {
           overflow: hidden;
           width: 200px;
           height: 200px;
-          border: 6px solid #50635d87;
+          border: 6px solid rgba(89, 89, 82, 0.32);
           border-radius: 200px;
         }
 
@@ -91,9 +91,10 @@ body {
       z-index: 2;
       .home-content {
         background: white;
-        padding: 40px 20px;
+        padding: 30px 30px;
         margin: 0 auto;
         width: 100%;
+        border-radius: 2px;
       }
     }
 
@@ -103,6 +104,7 @@ body {
           font-family: 'Inconsolata';
           font-size: 32px;
           font-weight: bold;
+          text-transform: uppercase;
         }
         .home-portfolio-items {
           display: flex;
@@ -114,7 +116,7 @@ body {
             height: 350px;
             flex-basis: 49%;
             margin-bottom: 30px;
-            border: 5px solid #f7f7f7;
+            border:6px solid #e4e4e4;
             background-position: center;
             background-size: cover;
             display: flex;
@@ -202,6 +204,7 @@ body {
           font-size: 32px;
           margin-bottom: 10px;
           font-weight: bold;
+          text-transform: uppercase;
         }
       }
     }
@@ -213,6 +216,7 @@ body {
           font-family: 'Inconsolata';
           font-size: 32px;
           font-weight: bold;
+          text-transform: uppercase;
         }
 
         .home-blog-items {
@@ -230,6 +234,7 @@ body {
               height: 0;
               position: relative;
               overflow: hidden;
+              border: 6px solid #e4e4e4;
               .home-blog-item-thumbnail {
                 transition: 0.5s ease all;
                 background-size: cover;
@@ -271,6 +276,7 @@ body {
           font-family: 'Inconsolata';
           font-size: 32px;
           font-weight: bold;
+          text-transform: uppercase;
         }
 
         .home-resume-items {
@@ -360,6 +366,7 @@ body {
           font-size: 32px;
           font-weight: bold;
           text-align: center;
+          text-transform: uppercase;
         }
 
         .home-contact-description {
