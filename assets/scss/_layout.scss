@@ -31,6 +31,8 @@ html {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
     .toggle-menu-mobile {
       display: none;
     }
@@ -81,40 +83,4 @@ html {
   text-align: center;
   color: white;
   margin-bottom: 10px;
-}
-
-@media only screen and (max-width: 991px) {
-  .nav-container {
-    .menu {
-      position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      background: #9c9381;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column-reverse;
-      &.menu-mobile--hidden {
-        display: none;
-      }
-
-      .language-flags {
-        margin-bottom: 20px;
-      }
-
-      > a {
-        color: white;
-      }
-
-      .menu-mobile-close {
-        display: block;
-        position: absolute;
-        right: 30px;
-        top: 20px;
-        color: white;
-      }
-    }
-  }
 }

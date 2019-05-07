@@ -39,6 +39,8 @@ body {
         .home-banner-image-profile-container {
           overflow: hidden;
           opacity: 0.9;
+          width: 200px;
+          height: 200px;
         }
 
         .home-banner-title {
@@ -81,7 +83,7 @@ body {
       z-index: 2;
       .home-content {
         background: white;
-        padding: 40px;
+        padding: 40px 20px;
         margin: 0 auto;
         width: 100%;
       }
@@ -98,11 +100,12 @@ body {
           align-items: center;
           justify-content: space-between;
           flex-wrap: wrap;
+          margin-top: 20px;
           .home-portfolio-item {
             height: 350px;
-            flex-basis: 48%;
-            margin-top: 40px;
-            border: 20px solid #151518;
+            flex-basis: 49%;
+            margin-bottom: 30px;
+            border: 10px solid #151518;
             background-position: center;
             background-size: cover;
             display: flex;
@@ -137,13 +140,12 @@ body {
               .home-portfolio-item-information-stack-items {
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
                 flex-wrap: wrap;
                 .home-portfolio-item-information-stack-item {
-                  flex-basis: 24%;
                   text-align: center;
-                  padding: 5px;
+                  padding: 5px 10px;
                   margin-top: 10px;
+                  margin-right: 10px;
                   background: rgba(0, 0, 0, 0.719);
                   color: white;
                   border-radius: 2px;
@@ -184,11 +186,12 @@ body {
     }
 
     .home-about-me-container {
-      margin-top: 60px;
+      margin-top: 30px;
       .home-about-me {
         .home-about-me-title {
           font-family: 'Inconsolata';
           font-size: 32px;
+          margin-bottom: 10px;
         }
       }
     }
@@ -206,9 +209,10 @@ body {
           align-items: center;
           justify-content: space-between;
           flex-wrap: wrap;
+          margin-top: 20px;
           .home-blog-item {
             flex-basis: 48%;
-            margin-top: 40px;
+            margin-bottom: 30px;
             cursor: pointer;
             .home-blog-item-thumbnail-container {
               padding-bottom: 56.25%;
@@ -252,7 +256,7 @@ body {
     }
 
     .home-resume-container {
-      margin-top: 60px;
+      margin-top: 30px;
       .home-resume {
         .home-resume-title {
           font-family: 'Inconsolata';
@@ -352,6 +356,40 @@ body {
             }
             margin-left: 10px;
             margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  body {
+    .home {
+      .home-portfolio-container {
+        .home-portfolio {
+          .home-portfolio-items {
+            .home-portfolio-item {
+              border-width: 5px;
+              flex-basis: 100%;
+              height: 450px;
+              &:before {
+                opacity: 0.9;
+              }
+              .home-portfolio-item-information {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+
+      .home-blog-container {
+        .home-blog {
+          .home-blog-items {
+            .home-blog-item {
+              flex-basis: 100%;
+            }
           }
         }
       }

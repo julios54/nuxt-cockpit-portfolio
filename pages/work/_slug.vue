@@ -4,12 +4,13 @@
       <div class="container">
         <div class="work-item-banner">
           <h1 class="work-item-banner-title animated bounceIn faster">{{ work.title }}</h1>
-          <p class="work-item-banner-content">{{ work.description }}</p>
+          <p class="work-item-banner-content" v-html="description"></p>
           <div class="work-item-banner-stack-items">
             <div v-for="(stackItem,key) in work.stack" :key="key" class="work-item-banner-stack-item">
               {{ stackItem.value }}
             </div>
           </div>
+          <a class="work-item-banner-link" :href="work.link" target="_blank" :title="work.title" v-if="work.link">{{ $t('work.view_project') }}</a>
         </div>
       </div>
     </section>
@@ -25,10 +26,14 @@
 </template>
 
 <script>
+import nl2br from 'nl2br'
 export default {
   computed: {
     thumbnail() {
       return `${process.env.COCKPIT_ASSETS_BASE_URL}/${this.work.image.path}`
+    },
+    description() {
+      return nl2br(this.work.description)
     }
   },
   async asyncData ({ app, params, error, payload, store }) {
