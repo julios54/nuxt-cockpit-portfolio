@@ -93,3 +93,21 @@ a {
   color: white;
   margin-bottom: 10px;
 }
+
+.btn-show-more-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  .btn-show-more {
+    padding: 15px 40px;
+    background: #e4e4e4;
+    color: #151518;
+    border-radius: 5px;
+    text-transform: uppercase;
+    &:hover {
+      background: #cccccc;
+      text-decoration: none;
+    }
+  }
+}

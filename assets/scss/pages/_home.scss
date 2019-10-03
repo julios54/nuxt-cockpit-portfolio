@@ -99,6 +99,7 @@ body {
     }
 
     .home-portfolio-container {
+      margin-top: 30px;
       .home-portfolio {
         .home-portfolio-title {
           font-family: 'Inconsolata';
@@ -112,6 +113,13 @@ body {
           justify-content: space-between;
           flex-wrap: wrap;
           margin-top: 20px;
+          &.homepage-portfolio-items--show-all {
+            .home-portfolio-item {
+              &:nth-child(n+5) {
+                display: flex;
+              }
+            }
+          }
           .home-portfolio-item {
             height: 350px;
             flex-basis: 49%;
@@ -124,6 +132,9 @@ body {
             position: relative;
             cursor: pointer;
             transition: 0.2s ease all;
+            &:nth-child(n+5) {
+              display: none;
+            }
             .home-portfolio-item-information {
               opacity: 0;
               transition: 0.5s ease all;
@@ -197,7 +208,6 @@ body {
     }
 
     .home-about-me-container {
-      margin-top: 30px;
       .home-about-me {
         .home-about-me-title {
           font-family: 'Inconsolata';
@@ -285,6 +295,13 @@ body {
           justify-content: space-between;
           flex-wrap: wrap;
           margin-top: 20px;
+          &.homepage-resume-items--show-all {
+            .home-resume-item {
+              &:nth-child(n+4) {
+                display: flex;
+              }
+            }
+          }
           .home-resume-item {
             flex-basis: 100%;
             &:not(:first-child) {
@@ -295,6 +312,11 @@ body {
               border-bottom: 1px solid #1414181f;
               padding-bottom: 30px;
             }
+
+            &:nth-child(n+4) {
+              display: none;
+            }
+
             background-position: center;
             background-size: cover;
             display: flex;

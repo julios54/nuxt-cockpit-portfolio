@@ -27,11 +27,18 @@
 
     <section class="container home-content-container">
       <div class="home-content">
+        <div class="home-about-me-container">
+          <div class="home-about-me">
+            <h1 class="home-about-me-title">{{ $t('home.about_me_title')}}</h1>
+            <div class="home-about-me-content content" v-html="aboutContent"></div>
+          </div>
+        </div>
+
         <div class="home-portfolio-container">
           <div class="home-portfolio">
             <h1 class="home-portfolio-title">{{ $t('home.portfolio_title')}}</h1>
             <p class="home-portfolio-subtitle">{{ $t('home.portfolio_description')}}</p>
-            <div class="home-portfolio-items">
+            <div class="home-portfolio-items" :class="{'homepage-portfolio-items--show-all': showAllWorks}">
               <div
                 class="home-portfolio-item animated slideInUp faster"
                 v-for="(work,workKey) in works"
@@ -60,13 +67,9 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="home-about-me-container">
-          <div class="home-about-me">
-            <h1 class="home-about-me-title">{{ $t('home.about_me_title')}}</h1>
-            <div class="home-about-me-content content" v-html="aboutContent"></div>
+            <div v-if="!showAllWorks" class="btn-show-more-container">
+              <a href="#" class="btn-show-more" @click.prevent="showAllWorks = !showAllWorks">Voir plus de projets</a>
+            </div>
           </div>
         </div>
 
@@ -74,7 +77,7 @@
           <div class="home-resume">
             <h1 class="home-resume-title">{{ $t('home.resume_title')}}</h1>
             <p class="home-resume-subtitle">{{ $t('home.resume_description')}}</p>
-            <div class="home-resume-items">
+            <div class="home-resume-items" :class="{'homepage-resume-items--show-all': showAllExperiences}">
               <div
                 class="home-resume-item"
                 v-for="(experience,experienceKey) in experiences"
@@ -108,6 +111,9 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div v-if="!showAllExperiences" class="btn-show-more-container">
+              <a href="#" class="btn-show-more" @click.prevent="showAllExperiences = !showAllExperiences">Voir plus d'expériences</a>
             </div>
           </div>
         </div>
@@ -175,6 +181,8 @@ export default {
   },
   data() {
     return {
+      showAllWorks: false,
+      showAllExperiences: false,
       stack: [
         {
           title: 'PHP',
